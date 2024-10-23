@@ -7,13 +7,11 @@ function CourseListCard({ items }) {
   return (
     <>
     <Card title="강의 목록">
-      <div>Hello React!!
       <div className="courses">
           <CourseItem {...course1} />
           <CourseItem {...course2} />
           <CourseItem {...course3} />
         </div>
-      </div>
     </Card>
     </>
   );
