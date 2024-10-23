@@ -1,16 +1,23 @@
+import { Fragment } from "react";
 import React from "react";
 import Card from '../Card';
 import CourseItem from "./CourseItem";
 
-function CourseListCard({ items }) {
-  const [course1, course2, course3] = items;
+function CourseListCard({ title, items }) {
+
+  const lastIndex = items.length - 1;
+
   return (
     <>
-    <Card title="강의 목록">
+    <Card title={title}>
       <div className="courses">
-          <CourseItem {...course1} />
-          <CourseItem {...course2} />
-          <CourseItem {...course3} />
+        {items.map((item, index) => (
+          <Fragment key={item.id}>
+          <CourseItem key={item.id}{...item} />
+          {index !== lastIndex && <hr className="divider" />}
+          
+          </Fragment>
+        ))}
         </div>
     </Card>
     </>
