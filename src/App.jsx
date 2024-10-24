@@ -1,5 +1,8 @@
 import "./App.css";
 import CourseListCard from "./componets/course/course/CourseListCard";
+import Header from "./componets/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Row, Col, Container} from 'react-bootstrap';
 function App() {
   const items = [
     {
@@ -29,12 +32,25 @@ function App() {
   ];
 
   const FavoriteItems = items.filter(item => item.isFavorite);
+  const nonFavoriteItems = items.filter(item => item.isFavorite === false);
   return (
     <>
-      <main style={{flexDirection: 'column', gap : '1rem'}}>
-        <CourseListCard title="강의 목록" items = {items} />
-        <CourseListCard title="관심 목록" items = {FavoriteItems} />
-      </main>
+    <Header />
+    <div style={{ backgroundColor: '#282828', minHeight: '100vh' }}>
+        <Container className="py-4">
+          <div className="mb-4">
+            <CourseListCard title="강의 목록" items={items} />
+          </div>
+          <Row className="g-4">
+            <Col xs={12}lg = {6}>
+              <CourseListCard title="관심 목록" items={FavoriteItems} />
+            </Col>
+            <Col xs={12}lg = {6}>
+              <CourseListCard title="관심 없는 목록" items={nonFavoriteItems} />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 }

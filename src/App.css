@@ -20,7 +20,8 @@ main {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  width: 500px;
+  width: 100%;
+  max-width: 100%;
 }
 .card__header {
   font-size: 1.5rem;
@@ -47,7 +48,6 @@ main {
   border-radius: 6px;
   width: 120px;
 }
-
 .course__title {
   font-weight: 500;
 }
@@ -64,7 +64,37 @@ main {
   align-items: center;
   column-gap: 0.6rem;
 }
+@media (max-width: 768) {
+  .course__title,
+  .course__description {
+    display: none;
+  }
 
+  .course__img {
+    width: 60px;  /* 이미지 크기도 줄임 */
+  }
+
+  .card {
+    padding: 1rem;  /* 카드 패딩도 줄임 */
+  }
+
+  .card__header {
+    width: auto;  /* 헤더 너비를 자동으로 조정 */
+    font-size: 1.2rem;  /* 헤더 글자 크기도 줄임 */
+  }
+
+  .course {
+    gap: 0.5rem;  /* 요소 간 간격 줄임 */
+  }
+
+  .course__body {
+    flex-grow: 0;  /* 본문이 늘어나지 않도록 설정 */
+  }
+
+  .course__icons {
+    margin-left: auto;  /* 아이콘을 오른쪽으로 밀어냄 */
+  }
+}
 /* Button */
 .btn {
   background: none;
@@ -91,3 +121,4 @@ main {
   background-color: #e2e2e2;
   margin: 16px 0;
 }
+
